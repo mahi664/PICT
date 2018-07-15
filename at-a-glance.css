@@ -1,0 +1,47 @@
+body{
+    padding-left: 0px;
+}
+.card-container{
+    padding-left: 0px;
+    padding-right: 0px;
+    float: left;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    z-index: 1;
+}
+.card{
+    background-color: #fff;
+    display: inline-block;
+    width: 95%;
+    height: 120px;
+    border-radius:4px;
+    align-self: center;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    box-shadow:1px 3px rgba(0, 0, 0 , 1);
+    -webkit-box-shadow:1px 3px rgba(0, 0, 0,1);
+    -moz-box-shadow:1px 3px rgba(0, 0, 0,1);   
+}
+.card-image img{
+    float: left;
+    width: 35%;
+    height: 119px;
+}
+.card-body{
+    margin: auto;
+    padding: 2%;
+    float: right;
+    width: 60%;
+    height: 100%;
+}
+.professor-category{
+    background: linear-gradient(to bottom, #fff , #ddde);
+    margin-top: 2.5px;
+	display: inline-block;
+    /*background-color: #ddde;*/
+    margin-bottom: 10px;
+}
+.info{
+    text-align: left;
+    height: auto;
+}
