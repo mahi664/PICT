@@ -6,7 +6,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-  <meta name="google-signin-client_id" content="675675619749-i7qbpm9m1kn3dedqrn8qbjie6l8hch4k.apps.googleusercontent.com">
+  <meta name="google-signin-client_id" content="423638288873-7h9c8l5uh87tddjndhapvek05dtkra2u.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
     var done=false;
@@ -20,10 +20,10 @@
 
     function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+    //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    //console.log('Name: ' + profile.getName());
+    //console.log('Image URL: ' + profile.getImageUrl());
+    //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
     post(profile.getEmail());
     //redirect('?email='+profile.getEmail());
   }
@@ -61,7 +61,7 @@
     function signOut() {
       var auth2 = gapi.auth2.getAuthInstance();
       auth2.signOut().then(function () {
-        console.log('User signed out.');
+        //console.log('User signed out.');
       });
     }    
 
@@ -72,7 +72,7 @@
 
   </script>
 </head>
-<body style="font-size: 15px;  background-image: url('../images/BodyBG.jpg'); background-attachment: fixed; background-size: 100% 100%; background-repeat: no-repeat;">
+<body onload="JavaScript:AutoRefresh(5000);" style="font-size: 15px;  background-image: url('../images/BodyBG.jpg'); background-attachment: fixed; background-size: 100% 100%; background-repeat: no-repeat;">
  <div class="container-fluid" style="padding-top: 30px; padding-bottom: 30px; color:#1a237e;">
     <div class="row">
     <div class="col-md-2 col-lg-2">

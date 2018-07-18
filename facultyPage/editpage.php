@@ -124,6 +124,7 @@ $per = round(($current/$total)*100);
 		}
 		function signOut() {
     		var auth2 = gapi.auth2.getAuthInstance();
+    		revokeAllScopes();
     		auth2.signOut().then(function () {
       		console.log('User signed out.');
       		revokeAllScopes();

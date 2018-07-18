@@ -1509,9 +1509,6 @@ if(isset($_POST['adda']))
     &copy PICT 2018
   </footer>
   
-
-
 </script>
 </body>
 </html>
-

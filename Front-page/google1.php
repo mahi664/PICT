@@ -13,33 +13,58 @@
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <meta name="google-signin-client_id" content="675675619749-i7qbpm9m1kn3dedqrn8qbjie6l8hch4k.apps.googleusercontent.com">
+  <meta name="google-signin-client_id" content="423638288873-7h9c8l5uh87tddjndhapvek05dtkra2u.apps.googleusercontent.com">
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <link rel="stylesheet" type="text/css" href="view.css">
   </head>
 <script type="text/javascript">
   
-  var done=false;
-  var clicked = false;
-  function init(){
-      gapi.load('auth2', function() { 
-      //  alert('Ready') ;
-      done=true;
-      })
-  }
+var done=false;
+var clicked = false;
+function init(){
+    gapi.load('auth2', function() { 
+        //alert('Ready') ;
+        done=true;
+    })
+}
 
-  function onSignIn(googleUser) {
+var auth2;
+var initClient = function(){
+  gapi.load('auth2',function()
+  {
+    auth2 = gapi.auth2.init({
+      client_id: '423638288873-7h9c8l5uh87tddjndhapvek05dtkra2u.apps.googleusercontent.com'
+    });
+  });
+};
+
+var onSuccess = function(error){
+  //console.log('Signed in as '+user.getBasicProfile().getName());
+};
+
+var revokeAllScopes = function() {
+  auth2.disconnect();
+};
+
+var onFailure = function(error){
+  console.log(error);
+  revokeAllScopes();
+};
+
+initClient();
+
+
+function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  //console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  //console.log('Name: ' + profile.getName());
+  //console.log('Image URL: ' + profile.getImageUrl());
+  //console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
   post(profile.getEmail());
   //redirect('?email='+profile.getEmail());
 }
 
 function redirect(){
-  
   clicked = true;
   if( done==false)
   {init();}
@@ -67,17 +92,12 @@ function post(email) {
       }
 }
 
-    window.onload()
-    {
-      location.reload();
-    }
-
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+}
 </script>
   <body onload="JavaScript:AutoRefresh(5000);">
     
