@@ -13,7 +13,7 @@
 	function create_cards($desig){
 		include("connect.php");
 		$mydept = 'Computer';
-		$sql = "SELECT fullname,contact,eid,image from faculty where designation='$desig' and enable = '1' ";
+		$sql = "SELECT fullname,contact,eid,image from faculty where designation='$desig'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0) {
 		    // output data of each row
@@ -21,7 +21,7 @@
 		    	$name = $row['fullname'];
 		    	$contact = $row['contact'];
 		    	$email = $row['eid'];
-		    	$imgpath = 'facultyPage/'.$row['image'];
+		    	$imgpath = $row['image'];
 		    	$url = "view.php?eid=$email";
 		 		echo   "<div class='card-container col-lg-4 col-xs-6 col-md-6' style='padding:0px;' >
 		 					<div class='card' style='margin:0px;'>
@@ -39,7 +39,7 @@
 			 						<font style='color:black;'>$email</font>
 		 						</div>
 		 						<div class='desc info'  >
-			 						<a href='$url'; ?>View Profile</a>
+			 						<a href='$url'>View Profile</a>
 		 						</div>
 		 					</div>
 		 				</div>

@@ -29,10 +29,10 @@ if(isset($_POST['journal_id']))
 				<b class="CardHeader">Journal Type: </b>'.$type.' 
 			</p> 
 			<p class="card-body">
-				<b class="CardHeader">Journal Description:</b>'.$description.'	
+				<b class="CardHeader">Paper Name:</b>'.$description.'	
 			</p>
 		</div>';
-		echo $_POST['x'];
+		//echo $_POST['x'];
 	}	
 }
 
@@ -75,11 +75,11 @@ if (isset($_POST['book_id']))
 		//echo $title.$type;
 		echo'<div class="card">
 			<p class="card-header">
-				<b class="CardHeader">Journal Title: </b>'.$title.'<br><br>
-				<b class="CardHeader">Journal Type: </b>'.$type.' 
+				<b class="CardHeader">Book Name: </b>'.$title.'<br><br>
+				<b class="CardHeader">Publication : </b>'.$type.' 
 			</p> 
 			<p class="card-body">
-				<b class="CardHeader">Journal Description:</b>'.$description.'	
+				<b class="CardHeader">Description:</b>'.$description.'	
 			</p>
 		</div>';
 	}	

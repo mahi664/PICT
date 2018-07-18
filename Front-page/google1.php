@@ -1,7 +1,3 @@
-<?php
-include "connect.php";
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +6,8 @@ include "connect.php";
   <title>Google Sign In</title>
   <link rel="stylesheet" type="text/css" href="mystyle.css">
   <link rel='stylesheet' href='at-a-glance.css' >
- <meta name="viewport" content="width=device-width, initial-scale=.3, maximum-scale=0.6">
+  
+ <meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=0.5">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
@@ -55,12 +52,11 @@ function post(email) {
     var form = document.createElement("form");
     form.setAttribute("method", "post");
     form.setAttribute("id", "myform");
-    form.setAttribute("action", "/PICT/facultyPage/login.php");
+    form.setAttribute("action", "main.php");
 
     var hiddenField = document.createElement("input");
     hiddenField.setAttribute("type", "hidden");
     hiddenField.setAttribute("name", "email");
-
     hiddenField.setAttribute("value", email);
 
     form.appendChild(hiddenField);
@@ -71,6 +67,11 @@ function post(email) {
       }
 }
 
+    window.onload()
+    {
+      location.reload();
+    }
+
   function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -78,9 +79,9 @@ function post(email) {
     });
   }
 </script>
-  <body style="font-size: 15px;  background-image: url('images/BodyBG.jpg'); background-attachment: fixed; background-size: 100% 100%; background-repeat: no-repeat;">
-  <div class="container-fluid" style="padding-top: 30px; padding-bottom: 30px; color:#1a237e;">
-    <div class="row">
+  <body onload="JavaScript:AutoRefresh(5000);">
+    
+  <div class="container-fluid" style="padding-top: 30px; padding-bottom: 30px; background:#2d2d2d; color:white;">
     <div class="col-md-2 col-lg-2">
     </div>
     <div class="col-md-1 col-lg-1">
@@ -98,9 +99,8 @@ function post(email) {
     <div class="col-md-2 col-lg-2">
     </div>
   </div>
-    </div>
-  </div>
-<nav class="navbar " style="background-color: #000066">
+    
+<nav class="navbar navbar-inverse" style="">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">

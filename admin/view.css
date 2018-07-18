@@ -1,0 +1,58 @@
+.NameHeadings{
+	color: blue;
+}
+.CardHeader{
+	color: blue;
+}
+
+.pdetails{
+}
+
+.mycard{
+	display: none;
+	overflow: hidden;
+	margin: 0% 5%;
+}
+
+.myimg{
+	 border-radius: 15px;
+	 float: left;
+}
+
+.mytbstyle{
+	 padding: 8px;
+}
+
+li{
+	margin: 0% 10%;
+}
+
+.mandatory{
+	color: red;
+}
+
+#PG{
+	display: none;
+}
+
+.myselect{
+	width: 100%;
+	padding: 5px;
+	border-radius: 3px;
+	background-color: white;
+}
+
+.mytextarea{
+	width: 100%;
+	border-radius: 3px;
+	resize: none;
+}
+	
+@media screen and (max-width: 300px) {
+    li{
+        margin: 0% 10%;
+    }
+    #navBar{
+    	visibility: hidden;
+    }
+}

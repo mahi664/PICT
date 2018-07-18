@@ -3,12 +3,15 @@
 }
 .CardHeader{
 	color: blue;
-	padding-top: 25px;
+}
+
+.pdetails{
 }
 
 .mycard{
+	display: none;
+	overflow: hidden;
 	margin: 0% 5%;
-	padding: 15px;
 }
 
 .myimg{
@@ -16,23 +19,15 @@
 	 float: left;
 }
 
-.mybtn{
-	color: blue; 
-	margin-left: 15px;
-}
-
 .mytbstyle{
-	 padding: 2px;
+	 padding: 8px;
 }
-
-
-
 
 li{
-		margin: 0% 10%;
-	}
+	margin: 0% 10%;
+}
 	
-	@media screen and (max-width: 300px) {
+@media screen and (max-width: 300px) {
     li{
         margin: 0% 10%;
     }

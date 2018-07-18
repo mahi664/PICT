@@ -2,14 +2,14 @@
 
 include "connect.php";
 
-$eid = $_GET['eid'];
+$eid = 'I2K15101931';
 //echo $eid;
-$sql = "SELECT image,fullname,contact,department,designation,responsibility,aoi,texperience,iexperience,other,cv,email FROM faculty F WHERE F.eid = '$eid'";
+$sql = "SELECT image,fullname,contact,department,designation,responsibility,aoi,texperience,iexperience,other,cv FROM Faculty F WHERE F.eid = '$eid'";
 $query = $conn->query($sql);
 if ($query) 
 {
 	$row = $query->fetch_assoc();
-	$img = "facultyPage/".$row['image'];
+	$img = $row['image'];
 	$fullname = $row['fullname'];
 	$contact = $row['contact'];
 	$department = $row['department'];
@@ -20,7 +20,6 @@ if ($query)
 	$iexperience = $row['iexperience'];
 	$other = $row['other'];
 	$cv = $row['cv'];
-	$email=$row['email'];
 }
 
 
@@ -30,7 +29,7 @@ if ($query)
 <html>
 <head>
 	<title>Faculty Portal|View Profile</title>
-	<meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=.8">
+	<meta name="viewport" content="width=device-width, initial-scale=0.4, maximum-scale=0.5">
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
 	<!-- jQuery library -->
@@ -40,36 +39,13 @@ if ($query)
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="view.css">
 </head>
-<body style="font-size: 15px;  background-image: url('images/BodyBG.jpg'); background-attachment: fixed; background-size: 100% 100%; background-repeat: no-repeat;">
-  <div class="container-fluid" style="padding-top: 30px; padding-bottom: 30px; color:#1a237e;">
-  	<div class="row">
-    <div class="col-md-2 col-lg-2">
-    </div>
-    <div class="col-md-1 col-lg-1">
-      <img src="images/logo.png" align="center"/>
-    </div>
-    <div class="col-md-6 col-lg-6 col-xs-12" align="center">
-      <div style="text-align: center;">
-        <b>
-            <p>Society for Computer Technology and Research's</p>
-            <h2 class="media-heading">Pune Institute of Computer Technology</h2>
-            <p>Affiliated to university of Pune, AICTE Approved, NACC Accredited, ISO 9001:2008</p>
-        </b>        
-      </div>
-    </div>
-    <div class="col-md-2 col-lg-2">
-    </div>
-  </div>
-    </div>
-  </div>
-
-
-	<div class="container-fluid" style="">	
+<body>
+	<div class="container-fluid">	
 		<!--Card with Initial Information and images-->
 			<div class="card mycard">
 				<p class="CardHeader"><b>Teacher's Photo and Personal Details:</b></p>
 				<div class="col-md-12">
-					<img class=" img-responsive myimg" src="<?php echo($img) ?>" height="200px" width="200px" alt="Faculty Photos">
+					<img class=" img-responsive myimg" src="<?php echo($img) ?>" alt="Faculty Photos">
 
 					<div class="card-body" style="margin-left: 300px; padding: 0px;">
 						<table style="margin-top: 15px;">
@@ -79,7 +55,7 @@ if ($query)
 							</tr>
 							<tr>
 								<td class="NameHeadings mytbstyle">Email:</td>
-								<td><?php echo $email; ?></td>
+								<td>aditya9707@gmail.com</td>
 							</tr>
 							<tr>
 								<td class="NameHeadings mytbstyle">Phone:</td>
@@ -128,13 +104,13 @@ if ($query)
 		</div>-->
 
 		<!--Qualification Details Table-->
-		<div id="Qualifications" class="card mycard" style="">
+		<div id="Qualifications" class="card mycard">
 			<p class="CardHeader"><b>Qualifications:</b></p>
-			<table class="table-striped table-bordered card-body" style="width: 100%;">
+			<table class="table-striped table-bordered card-body">
 				
 				<?php
 
-				$sql1 = "SELECT * FROM qualifications WHERE eid = '$eid'";
+				$sql1 = "SELECT * FROM Qualifications WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -188,36 +164,33 @@ if ($query)
 			<p>worked in various committee's in College level.</p>
 		</div>-->
 		<div class="card mycard">
-			<table class="table-striped table-bordered" style="width: 100%;">
+			<table class="table-striped table-bordered">
 				<tr><th></th></tr>
 
 				<tr><th class="CardHeader mytbstyle">Areas of Interest:</th></tr>
-				<tr><td style="padding: 10px;"><?php if($aoi==""){echo "NA";} echo $aoi; ?></td></tr>
-
-				<tr><th class="CardHeader mytbstyle">Subjects Taught:</th></tr>
-				<tr><td style="padding: 10px;"><?php if($aoi==""){echo "NA";} echo $aoi; ?></td></tr>
+				<tr><td style="padding: 10px;"><?php echo $aoi; ?></td></tr>
 
 				<tr><th class="CardHeader mytbstyle">Teaching Experience:</th></tr>
-				<tr><td style="padding: 10px;"><?php if($texperience==""){echo "NA";} echo $texperience; ?></td></tr>
+				<tr><td style="padding: 10px;"><?php echo $texperience; ?></td></tr>
 
 				<tr><th class="CardHeader mytbstyle">Industrial Experience:</th></tr>
-				<tr><td style="padding: 10px;"><?php if($iexperience==""){echo "NA";} echo $iexperience; ?></td></tr>
+				<tr><td style="padding: 10px;"><?php echo $iexperience; ?></td></tr>
 
 				<tr><th class="CardHeader mytbstyle">Other details:</th></tr>
-				<tr><td style="padding: 10px;"><?php if($other==""){echo "NA";} echo $other; ?></td></tr>
+				<tr><td style="padding: 10px;"><?php echo $other; ?></td></tr>
 			</table>
 			
 		</div>
 
-		<!--<div  class="card mycard" style="padding-bottom: 30px;">
-			<p class="CardHeader"><b>Publications:</b></p>-->
+		<div  class="card mycard" style="padding-bottom: 30px;">
+			<p class="CardHeader"><b>Publications:</b></p>
 			<!-- Journal Details-->
-			<div class="card mycard" id="Journals">
-				<p class="CardHeader"><b>Journal Details:</b></p>
+			<div class="card mycard" id="Journals" style="margin-bottom: 10px;">
+				<p class="CardHeader">Journal Details:</p>
 				<?php
-				$sql1 = "SELECT * from journals WHERE eid = '$eid'";
+				$sql1 = "SELECT * from Journals WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
-				echo '<table class="table-striped table-bordered card-body"  style="width: 100%;">';
+				echo '<table class="table-striped table-bordered card-body">';
 				if($result1->num_rows>0)
 				{
 					echo'<p>Total Number of Journals: <a href="#">'.$result1->num_rows.'</a></p>
@@ -250,12 +223,12 @@ if ($query)
 
 
 			<!-- Book Details-->
-			<div class="card mycard" id="Journals" >
-				<p class="CardHeader"><b>Book Details:</b></p>
+			<div class="card mycard" id="Journals" style="margin-bottom: 10px;">
+				<p class="CardHeader">Book Details:</p>
 
 				<?php
-				echo '<table class="table-striped table-bordered card-body"  style="width: 100%;">';
-				$sql1 = "SELECT * FROM books WHERE eid = '$eid'";
+				echo '<table class="table-striped table-bordered card-body">';
+				$sql1 = "SELECT * FROM Books WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -287,12 +260,12 @@ if ($query)
 			</div>
 
 
-			<div class="card mycard" id="Journals">
-				<p class="CardHeader"><b>Patent Details:</b></p>
+			<div class="card mycard" id="Journals" style="margin-bottom: 10px;">
+				<p class="CardHeader">Patent Details:</p>
 
 				<?php
-				echo '<table class="table-striped table-bordered card-body" style="width: 100%;">';
-				$sql1 = "SELECT * FROM patent WHERE eid = '$eid'";
+				echo '<table class="table-striped table-bordered card-body">';
+				$sql1 = "SELECT * FROM Patent WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -328,12 +301,12 @@ if ($query)
 			</div>
 
 
-			<div class="card mycard" id="Journals">
-				<p class="CardHeader"><b>Conferences Details:</b></p>
+			<div class="card mycard" id="Journals" style="margin-bottom: 10px;">
+				<p class="CardHeader">Conferences Details:</p>
 
 				<?php
-				echo '<table class="table-striped table-bordered card-body" style="width: 100%;">';
-				$sql1 = "SELECT * FROM conferences WHERE eid = '$eid'";
+				echo '<table class="table-striped table-bordered card-body">';
+				$sql1 = "SELECT * FROM Conferences WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -378,7 +351,7 @@ if ($query)
 					<tr><td class="mytbstyle"><a href="<?php echo $cv; ?>" target=" ">Click</a> to view Complete CV </p></td></tr>
 				</table>
 			</div-->
-		<!--</div>-->
+		</div>
 		<!-- Modal for journal details -->
 		<div class="modal fade" id="dataModal1">
   			<div class="modal-dialog modal-xl modal-dialog-centered">
@@ -386,7 +359,7 @@ if ($query)
 
 			      <!-- Modal Header -->
 			      <div class="modal-header">
-			        <h4 class="modal-title CardHeader" id="chead"></h4>
+			        <h4 class="modal-title CardHeader">Journals Published by <?php echo $fullname; ?></h4>
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			      </div>
 
@@ -408,60 +381,41 @@ if ($query)
 			$(document).ready(function(){
 				$('.view_journal').click(function(){
 					var journal_id = $(this).attr("id");	
-					var x = $("#dataModal1").attr("id");
+
 					$.ajax({
 						url:'select_description.php',
 						method:"POST",
-						data: {journal_id:journal_id,x:x},
+						data: {journal_id:journal_id},
 						success:function(data){
-							$('#chead').html('Journals Published by <?php echo $fullname; ?>');	
 							$('#journal_detail').html(data);
 							$('#dataModal1').modal("show");
 						}
-					});	
-				});
-
-				$('.view_book').click(function(){
-					var book_id = $(this).attr("id");
-
-					$.ajax({
-
-						url : 'select_description.php',
-						method : 'POST',
-						data : {book_id:book_id},
-						success: function(data){
-							$('#chead').html("Books Published by <?php echo $fullname; ?>");
-							$('#journal_detail').html(data);
-							$('#dataModal1').modal("show");
-						}
-
 					});
 
+					
 				});
-
-
 			});
 		</script>
 
 
 		<!-- Modal for Book details -->
-		<!--div class="modal fade" id="dataModal2">
+		<div class="modal fade" id="dataModal2">
   			<div class="modal-dialog modal-lg modal-dialog-centered">
     			<div class="modal-content">
 
-			       Modal Header 
+			      <!-- Modal Header -->
 			      <div class="modal-header">
 			        <h4 class="modal-title CardHeader">Books Published by <?php echo $fullname; ?></h4>
 			        <button type="button" class="close" data-dismiss="modal">&times;</button>
 			      </div>
 
-			      <!-- Modal body 
+			      <!-- Modal body -->
 			      <div class="modal-body" id="book_detail">
 
 			      	
 			      </div>
 
-			      <!-- Modal footer 
+			      <!-- Modal footer -->
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
 			      </div>
@@ -486,14 +440,14 @@ if ($query)
 					
 				});
 			});
-		</script>-->
+		</script>
 
 		<div class="card mycard" id="frp">
 			<p class="CardHeader"><b>Funded Research Projects:</b></p>
 
 			<?php
-				echo '<table class="table-striped table-bordered card-body" style="width: 100%;">';
-				$sql1 = "SELECT * FROM fundedrp WHERE eid = '$eid'";
+				echo '<table class="table-striped table-bordered card-body">';
+				$sql1 = "SELECT * FROM Fundedrp WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -534,8 +488,8 @@ if ($query)
 			<p class="CardHeader"><b>Consultancy Details:</b></p>
 
 			<?php
-				echo '<table class="table-striped table-bordered card-body" style="width: 100%;">';
-				$sql1 = "SELECT * FROM consultancy WHERE eid = '$eid'";
+				echo '<table class="table-striped table-bordered card-body">';
+				$sql1 = "SELECT * FROM Consultancy WHERE eid = '$eid'";
 				$result1 = $conn->query($sql1);
 				if($result1->num_rows>0)
 				{
@@ -554,11 +508,11 @@ if ($query)
 						echo'<tr>
 						<td class="mytbstyle">'.$i.'</td>
 						<td>'.$row1["ioiu"].'</td>
-						
+						<td>'.$row1["year"].'</td>
 						<td>'.$row1["sdate"].'</td>
 						<td>'.$row1["edate"].'</td>
 						<td>'.$row1["duration"].'</td>
-						<td><button type="button" class="btn btn-light mybtn view_consult" name="view" id="'.$row1["csid"].'">View Details</button></td>
+						<td><button type="button" class="btn btn-light mybtn view_book" name="view" id="'.$row1["bid"].'">View Details</button></td>
 						</tr>';
 					}
 				}
@@ -570,31 +524,12 @@ if ($query)
 			?>
 		</div>
 
-		<script>
-			$(document).ready(function(){
-				$('.view_consult').click(function(){
-					var consult_id = $(this).attr("id");	
-					var x = $("#dataModal1").attr("id");
-					$.ajax({
-						url:'select_description.php',
-						method:"POST",
-						data: {consult_id:consult_id,x:x},
-						success:function(data){
-								
-							$('#journal_detail').html(data);
-							$('#dataModal1').modal("show");
-						}
-					});	
-				});
-			});
-		</script>
-
 		<div class="card mycard">
-			<table class="table-striped table-bordered" style="width: 100%;">
+			<table class="table-striped table-bordered">
 				<tr><th></th></tr>
 
 				<tr><th class="CardHeader" style="padding: 10px;">Curriculum Vitae:</th></tr>
-				<tr><td class="mytbstyle"><a href="<?php echo 'facultyPage/'.$cv; ?>" target=" ">Click</a> to view Complete CV </p></td></tr>
+				<tr><td class="mytbstyle"><a href="<?php $cv; ?>" target=" ">Click</a> to view Complete CV </p></td></tr>
 				<!--<tr><td class="CardHeader" style="padding: 10px;">Conference Details</td></tr>
 				<tr><td class="mytbstyle"><p>Total Number of Conferences: <a href="#">04</a></p></td></tr>
 

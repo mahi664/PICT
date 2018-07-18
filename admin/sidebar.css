@@ -1,0 +1,40 @@
+#sidebar{
+	margin-top: -20px;
+	z-index: 1;
+	position: absolute;
+	width: 250px;
+	background-color: #2d2a2a;
+	height: 100%;
+}
+.page-content{
+	
+	padding-left: 280px;
+}
+.sidebar-nav{
+
+	padding: 0;
+	list-style: none;
+}
+.sidebar-nav li{
+	color: white;
+	text-indent: 20px;
+	line-height: 40px;
+}
+.navbar navbar-inverse{
+	background-color: #2d2a2a;
+	width: 100%
+}
+.well{
+	background-color: #03FCF5;
+}
+.inner{
+
+	margin-left:  10%;
+	text-indent: 20px;
+	line-height: 40px;
+
+}
+
+.mycontent{
+	display: none;
+}

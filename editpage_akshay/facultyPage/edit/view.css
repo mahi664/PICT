@@ -3,12 +3,11 @@
 }
 .CardHeader{
 	color: blue;
-	padding-top: 25px;
+	padding: 8px;
 }
 
 .mycard{
 	margin: 0% 5%;
-	padding: 15px;
 }
 
 .myimg{
@@ -22,7 +21,7 @@
 }
 
 .mytbstyle{
-	 padding: 2px;
+	 padding: 4px;
 }
 
 
