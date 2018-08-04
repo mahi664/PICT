@@ -1,12 +1,11 @@
 <?php
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "PICT";
-	// Create connection
-	$conn = new mysqli($servername, $username, $password, $dbname);
-	// Check connection
-	if ($conn->connect_error) {
-	    die("Connection failed: " . $conn->connect_error );
-	} 
+$user="root";
+$pass="";
+$host = "localhost";
+$db = "MPSC";
+
+$conn = mysqli_connect($host,$user,$pass, $db);
+if(!$conn){
+	echo $conn->error();
+}
 ?>
